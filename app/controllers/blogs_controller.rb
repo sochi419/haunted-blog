@@ -10,9 +10,7 @@ class BlogsController < ApplicationController
   end
 
   def show
-    if @blog.secret && current_user != @blog.user
-      raise ActiveRecord::RecordNotFound if @blog.secret && current_user != @blog.user
-    end
+    raise ActiveRecord::RecordNotFound if @blog.secret && current_user != @blog.user
   end
 
   def new
